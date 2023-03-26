@@ -1,17 +1,29 @@
 import { Alert } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface Props {
-  count: number;
+  password: string;
 }
 
-function Strength({ count }: Props) {
+function Strength({ password }: Props) {
+  const [isStrong, setIsStrong] = useState(false);
+
+  useEffect(() => {
+    setIsStrong(validatePassword(password));
+  }, [password])
+
+  const validatePassword = (password: string) => {
+  const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+  return regex.test(password);
+}
+
   return (
     <>
-      {count === 1 && <Alert sx={{width: '100%'}} severity="error">Weak password!</Alert>}
-      {count === 2 && <Alert sx={{width: '100%'}} severity="warning">Medium password!</Alert>}
-      {count === 3 && <Alert sx={{width: '100%'}} severity="info">Strong password!</Alert>}
-      {count === 4 && <Alert sx={{width: '100%'}} severity="success">Very strong password!</Alert>}
+      {
+      isStrong 
+      ? <Alert sx={{width: '100%'}} severity="success">Very strong password!</Alert>
+      : <Alert sx={{width: '100%'}} severity="error">Weak password!</Alert>
+    }
     </>
   );
 }
