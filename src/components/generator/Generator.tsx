@@ -36,7 +36,6 @@ function Generator() {
   const [passwordLength, setPasswordLength] = useState<number>(10);
   const [characters, setCharacters] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [count, setCount] = useState<number>(0);
 
   const generatePassword = () => {
     let password = "";
@@ -65,7 +64,6 @@ function Generator() {
       : characters.replace(CHARS[name], "");
 
     setCharacters(chars);
-    checked ? setCount(count + 1) : setCount(count - 1);
   };
 
   return (
