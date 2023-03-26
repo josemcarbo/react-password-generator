@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./common/themes/theme";
+import '@fontsource/poppins';
 
 const container = document.getElementById("root") ?? document.body;
 const root = createRoot(container);
