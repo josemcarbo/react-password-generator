@@ -1,0 +1,9 @@
+.strength-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.strength-alert {
+    width: 100%;
+}
