@@ -19,7 +19,7 @@ import Strength from "../strength/Strength";
 
 const PASSWORD_LENGTH_DEFAULT = 10;
 const PASSWORD_LENGTH_MAX = 20;
-const PASSWORD_LENGTH_MIN = 8;
+const PASSWORD_LENGTH_MIN = 6;
 const CHARS = {
   upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lower: "abcdefghijklmnopqrstuvwxyz",
@@ -151,7 +151,7 @@ function Generator() {
             </FormControl>
           </section>
           <section>
-            <Strength count={count}/>
+            {password && <Strength password={password}/>}
           </section>
         </CardContent>
         <CardActions className="card-actions">
